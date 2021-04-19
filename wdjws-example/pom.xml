@@ -24,28 +24,28 @@
 		<dependency>
 			<groupId>io.github.aaronanderson</groupId>
 			<artifactId>wdjws-util</artifactId>
-			<version>1.1-SNAPSHOT</version>
+			<version>1.1.0</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.5.1</version>
+			<version>5.7.1</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-slf4j-impl</artifactId>
-			<version>2.12.1</version>
+			<version>2.14.1</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>2.12.1</version>
+			<version>2.14.1</version>
 			<scope>test</scope>
 		</dependency>
 
