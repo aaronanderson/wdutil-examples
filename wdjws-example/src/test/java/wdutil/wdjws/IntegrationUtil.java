@@ -37,7 +37,7 @@ import com.workday.intsys.xml.IntegrationSystemAuditedObjectID;
 import com.workday.intsys.xml.IntegrationSystemRequestReferences;
 import com.workday.intsys.xml.LaunchIntegrationEventRequest;
 import com.workday.intsys.xml.LaunchIntegrationEventResponse;
-import com.workday.intsys.xml.RepositoryDocumentObjectID;
+import com.workday.intsys.xml.RepositoryDocumentAbstractObjectID;
 import com.workday.intsys.xml.RepositoryDocumentSummaryData;
 import com.workday.intsys.xml.WebServiceBackgroundProcessRuntimeObject;
 import com.workday.intsys.xml.WebServiceBackgroundProcessRuntimeObjectID;
@@ -182,7 +182,7 @@ public class IntegrationUtil {
 		for (EventDocuments docs : response.getResponseData().getEventDocuments()) {
 			for (RepositoryDocumentSummaryData doc : docs.getRepositoryDocument()) {
 				if (fileName.matcher(doc.getRepositoryDocumentReference().getDescriptor()).matches()) {
-					for (RepositoryDocumentObjectID id : doc.getRepositoryDocumentReference().getID()) {
+					for (RepositoryDocumentAbstractObjectID id : doc.getRepositoryDocumentReference().getID()) {
 						if ("Document_ID".equals(id.getType())) {
 							return id.getValue();
 						}

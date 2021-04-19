@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.aaronanderson</groupId>
 	<artifactId>wdutil-example-parent</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>WDUtil Examples</description>
@@ -37,6 +37,8 @@
 	<modules>
 		<module>wdjws-wsdl</module>
 		<module>wdjws-example</module>
+		<module>wdjrs-spec</module>
+		<module>wdjrs-example</module>
 		<module>ui-automation-example</module>
 	</modules>
 
