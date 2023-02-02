@@ -149,7 +149,7 @@ public class AutomationTest {
 
     }
 
-    //@Test
+    @Test
     public void deleteUnusedCalcFields() throws Exception {
         AutomationUtil util = new AutomationUtil(newDriver(), Duration.of(60, ChronoUnit.SECONDS));
         try {
@@ -304,7 +304,7 @@ public class AutomationTest {
                                 PDPage page = pages.next();
                                 PayslipReader payslipReader = new PayslipReader();
                                 payslipReader.processPage(page);
-                                if (!payslipReader.getPaymentDate().isBlank()) {
+                                if (!payslipReader.getPaymentDate().isEmpty()) {
                                     System.out.format("Processed payslip file %s: %s %s %s: %s \n", downloadFile.toAbsolutePath(), payslipReader.periodStartDate, payslipReader.periodEndDate, payslipReader.paymentDate, payslipReader.gross);
                                     return; //just download one file for demonstration purposes.
                                 }
