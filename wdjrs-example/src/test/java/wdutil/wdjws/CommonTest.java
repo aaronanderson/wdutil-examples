@@ -40,6 +40,7 @@ public class CommonTest {
 
 	@Test
 	public void getWorkers() throws Exception {
+		//requires Workday API Client scopes Tenant Non-Configurable, Staffing 
 		//WorkersApi workersApi = RestClientBuilder.newBuilder().baseUri(new URI(String.format("https://%s/ccx/api/v1/%s", testProperties.getProperty("workday.host"), testProperties.getProperty("workday.tenant")))).register(new OidcClientRequestCustomFilter()).build(WorkersApi.class);
 		ResteasyWebTarget target = (ResteasyWebTarget)ClientBuilder.newBuilder().register(new OidcClientRequestCustomFilter()).build().target(new URI(String.format("https://%s/ccx/api/v1/%s", testProperties.getProperty("workday.host"), testProperties.getProperty("workday.tenant"))));
 		WorkersApi workersApi = target.proxyBuilder(WorkersApi.class).defaultConsumes(MediaType.APPLICATION_JSON).build();
@@ -51,7 +52,6 @@ public class CommonTest {
 			assert (workers.getData().size() > 0);
 			total = workers.getTotal();
 			offset = offset + workers.getData().size() + 1;
-			LOG.info("offset {} - Total {}", offset, total);
 			for (WorkerSummaryA489aef739484c13a59e6d502a9e7b68 worker : workers.getData()) {
 				LOG.info("{} - {}", worker.getId(), worker.getDescriptor());
 			}

@@ -29,7 +29,7 @@ public class WQLTest {
 
 	@Test
 	public void queryWQL() throws Exception {
-		// Set the "Scope (Functional Areas)" API Client setting to System
+		//Requires Workday API Client scope System
 
 		BearerAuthenticator auth = new BearerAuthenticator(testProperties.getProperty("workday.accessToken"));
 		JsonObject dataSources = WQL.datasources(testProperties.getProperty("workday.host"), testProperties.getProperty("workday.tenant"), null, auth, JsonObject.class);

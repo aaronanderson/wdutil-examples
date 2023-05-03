@@ -76,6 +76,7 @@ public class IntegrationTest {
 
     @Test
     public void oAuthTest() throws Exception {
+    	//requires Workday API Client scopes Tenant Non-Configurable, Implementation
         IntegrationsPort intSysPort = intsysService.getIntegrations();
 
         String endpoint = String.format("https://%s/ccx/service/%s/%s/%s", testProperties.getProperty("workday.host"), testProperties.getProperty("workday.tenant"), "Integrations", "v" + testProperties.getProperty("workday.version"));
