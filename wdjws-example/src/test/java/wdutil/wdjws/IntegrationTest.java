@@ -125,7 +125,7 @@ public class IntegrationTest {
         lp.setLaunchParameterValueData(new IntegrationAbstractValueData().withBoolean(true));
         lier[3] = lp;
 
-        IntegrationEvent event = intUtil.launchIntegration("Cloud Connect  - Worker", lier);
+        IntegrationEvent event = intUtil.launchIntegration("CloudConnectWorker", lier);
         assertNotNull(event);
         event = intUtil.waitForFinish(event.getIntegrationEventReference().getID().stream().filter(i -> "Background_Process_Instance_ID".contentEquals(i.getType())).findFirst().get().getValue());
         intUtil.downloadFiles(event, new Pattern[] { Pattern.compile(".*\\.xml") }, Paths.get("target/wd-files"), false);

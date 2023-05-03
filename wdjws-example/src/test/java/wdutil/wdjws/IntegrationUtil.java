@@ -42,7 +42,8 @@ import com.workday.intsys.xml.RepositoryDocumentSummaryData;
 import com.workday.intsys.xml.WebServiceBackgroundProcessRuntimeObject;
 import com.workday.intsys.xml.WebServiceBackgroundProcessRuntimeObjectID;
 
-import wdutil.wdjws.rest.MyReports;
+import wdutil.wdjws.rest.BasicAuthenticator;
+import wdutil.wdjws.rest.Blobitory;
 import wdutil.wdjws.ws.Log4JWriter;
 import wdutil.wdjws.ws.WSUtil;
 
@@ -155,10 +156,10 @@ public class IntegrationUtil {
 
 					filePath = intDir.resolve(fileName);
 					String[] did = doc.getIntegrationRepositoryDocumentData().getDocumentID().split("\\/");
-					String fileURL = MyReports.getMyReportsFileURL(host, tenant, String.format("%s/%s", URLEncoder.encode(did[0], "UTF-8"), did[1]));
+					String fileURL = Blobitory.getMyReportsFileURL(host, tenant, String.format("%s/%s", URLEncoder.encode(did[0], "UTF-8"), did[1]));
 					LOG.info("Downloading file {} at {} to path {}", fileName, fileURL, filePath);
 					try {
-						byte[] file = MyReports.downloadFile(fileURL, username, tenant, password);
+						byte[] file = Blobitory.downloadFile(fileURL, tenant, new BasicAuthenticator(String.format("%s/%s", username, tenant), password));
 						Files.write(filePath, file);
 						LOG.info("Download complete");
 					} catch (Exception e) {
