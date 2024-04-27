@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.github.aaronanderson</groupId>
 		<artifactId>wdutil-example-parent</artifactId>
-		<version>1.2</version>
+		<version>1.2.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>wdjrs-spec</artifactId>
 
@@ -69,7 +69,7 @@
 			<plugin>
 				<groupId>io.github.aaronanderson</groupId>
 				<artifactId>wdjrs-maven-plugin</artifactId>
-				<version>1.2</version>
+				<version>1.2.3</version>
 				<executions>
 					<execution>
 						<goals>

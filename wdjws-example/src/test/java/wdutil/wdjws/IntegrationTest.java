@@ -83,7 +83,7 @@ public class IntegrationTest {
 
         WSUtil.overridePort(intSysPort, 25000, 25000, endpoint);
         WSUtil.setDescriptors(intSysPort, true);
-        WSUtil.setOAuthAuthorization(intSysPort, () -> testProperties.getProperty("workday.accessToken"));
+        WSUtil.setTokenAuthorization(intSysPort, () -> testProperties.getProperty("workday.accessToken"));
         //The API Client should have Scope (Functional Areas):    Scope (Functional Areas): Integration, System
         
         if (LOG.isDebugEnabled()) {

@@ -19,6 +19,8 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.io.IOUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -296,7 +298,7 @@ public class AutomationTest {
                         util.getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@data-automation-id='pdfDownloadButton']"))).click();
                         util.getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@data-automation-id='pdfCloseButton']"))).click();
                         Path downloadFile = fileWatcher.waitForDownload();
-                        try (InputStream in = Files.newInputStream(downloadFile); PDDocument w2File = PDDocument.load(in);) {
+                        try (InputStream in = Files.newInputStream(downloadFile); PDDocument w2File = Loader.loadPDF(IOUtils.toByteArray(in));) {
                             int pageCount = 0;
                             Iterator<PDPage> pages = w2File.getPages().iterator();
                             while (pages.hasNext()) {
